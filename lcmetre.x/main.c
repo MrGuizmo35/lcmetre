@@ -71,9 +71,16 @@ void main(void)
     __delay_ms(100);
     clearLCD();
     __delay_ms(100);
-    lcdPrint("Hello, world!");
+    lcdPrint("Super lcmetre");
     gotoLCD(SECOND_LINE);
-    lcdPrint("Second line");
+    lcdPrint("Please wait...");  
+    IND_OUT_SetLow();
+    __delay_ms(1000);
+    clearLCD();
+
+    lcdPrint("Super lcmetre");
+    gotoLCD(SECOND_LINE);
+    lcdPrint("Ready!!"); 
     while (1)
     {
         // Add your application code
