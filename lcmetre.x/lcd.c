@@ -31,18 +31,18 @@
 
 ////////////////////////////////////////////////////////
 //Replace the following pin definitions with your hardware
-#define RS LATCbits.LATC6
-#define EN LATCbits.LATC7
+#define RS LATBbits.LATB7
+#define EN LATBbits.LATB6
 // Required for 8-bit
-#define D0 LATCbits.LATC0
-#define D1 LATCbits.LATC1
-#define D2 LATCbits.LATC2
-#define D3 LATCbits.LATC3
+//#define D0 LATCbits.LATC0
+//#define D1 LATCbits.LATC1
+//#define D2 LATCbits.LATC2
+//#define D3 LATCbits.LATC3
 // Required for 4-bit
-#define D4 LATBbits.LATB4
-#define D5 LATBbits.LATB5
-#define D6 LATBbits.LATB6
-#define D7 LATBbits.LATB7
+#define D4 LATBbits.LATB5
+#define D5 LATBbits.LATB4
+#define D6 LATCbits.LATC2
+#define D7 LATCbits.LATC1
 /////////////////////////////////////////////////////////
 
 
@@ -168,6 +168,7 @@ static void lcdNibble(uint8_t nibble){
  * @param byte
  */
 static void lcdByte(uint8_t byte){
+#if(MODE == _8BIT)
     D0 = (byte & 0x01) ? 1 : 0;
     D1 = (byte & 0x02) ? 1 : 0;
     D2 = (byte & 0x04) ? 1 : 0;
@@ -182,6 +183,7 @@ static void lcdByte(uint8_t byte){
     __delay_us(100);
     EN = 0; 
     __delay_us(100);
+#endif
 }
 
 

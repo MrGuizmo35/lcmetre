@@ -12,7 +12,10 @@
 
 #include <xc.h> // include processor files - each processor file is guarded.
 #include <stdint.h>
+
+#ifndef _XTAL_FREQ
 #define _XTAL_FREQ 32000000
+#endif
 
 typedef enum{
     FIRST_LINE,

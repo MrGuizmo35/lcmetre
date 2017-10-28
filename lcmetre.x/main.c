@@ -44,7 +44,7 @@
 */
 
 #include "mcc_generated_files/mcc.h"
-
+#include "lcd.h"
 /*
                          Main application
  */
@@ -67,7 +67,13 @@ void main(void)
 
     // Disable the Peripheral Interrupts
     //INTERRUPT_PeripheralInterruptDisable();
-
+    initLCD();
+    __delay_ms(100);
+    clearLCD();
+    __delay_ms(100);
+    lcdPrint("Hello, world!");
+    gotoLCD(SECOND_LINE);
+    lcdPrint("Second line");
     while (1)
     {
         // Add your application code
