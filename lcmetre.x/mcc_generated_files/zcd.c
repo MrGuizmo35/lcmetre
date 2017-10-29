@@ -58,8 +58,8 @@ void ZCD_Initialize (void)
 {
      // Set the ZCD to the options selected in the User Interface
     
-    // ZCD1POL not inverted; ZCD1EN disabled; ZCD1INTP disabled; ZCD1INTN disabled; 
-    ZCD1CON = 0x00;
+    // ZCD1POL not inverted; ZCD1EN enabled; ZCD1INTP disabled; ZCD1INTN disabled; 
+    ZCD1CON = 0x80;
 }
 
 bool ZCD_IsLogicLevel(void)

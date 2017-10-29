@@ -57,8 +57,8 @@
 
 void SMT1_Initialize(void)
 {
-    // WPOL high/rising edge enabled; STP rolls over to 24'h000000; SPOL high/rising edge enabled; EN enabled; SMT1PS 1:1 Prescaler; CPOL rising edge; 
-    SMT1CON0 = 0x80;
+    // WPOL high/rising edge enabled; STP rolls over to 24'h000000; SPOL high/rising edge enabled; EN disabled; SMT1PS 1:1 Prescaler; CPOL rising edge; 
+    SMT1CON0 = 0x00;
 
     // SMT1REPEAT Single Acquisition mode; SMT1MODE Period and Duty-Cycle Acquisition; SMT1GO disabled; 
     SMT1CON1 = 0x02;

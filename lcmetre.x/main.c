@@ -45,9 +45,13 @@
 
 #include "mcc_generated_files/mcc.h"
 #include "lcd.h"
+#include <stdbool.h>
 /*
                          Main application
  */
+
+bool startMeasure = false;
+
 void main(void)
 {
     // initialize the device
@@ -83,7 +87,12 @@ void main(void)
     lcdPrint("Ready!!"); 
     while (1)
     {
-        // Add your application code
+        if(startMeasure)
+        {
+            startMeasure = false;
+            IND_OUT_SetHigh();
+            SMT1_SingleDataAcquisition();
+        }
     }
 }
 /**
