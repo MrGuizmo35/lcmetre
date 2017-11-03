@@ -50,8 +50,8 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include "interrupt_manager.h"
-#include "tmr1.h"
 #include "adc.h"
+#include "tmr1.h"
 #include "smt1.h"
 #include "zcd.h"
 

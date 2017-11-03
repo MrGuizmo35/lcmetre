@@ -50,11 +50,15 @@
     Main application
 */
 
-bool startMeasure = false;
+bool startMeasure = true;
 
 void main(void)
 {
+    int i;
     SYSTEM_Initialize();
+    
+    HIDRVCbits.HIDC4 = 1;
+    HIDRVCbits.HIDC5 = 1;
 
     // Enable the Global Interrupts
     INTERRUPT_GlobalInterruptEnable();
@@ -69,7 +73,7 @@ void main(void)
     lcdPrint("Super lcmetre");
     gotoLCD(SECOND_LINE);
     lcdPrint("Please wait...");  
-    IND_OUT_SetLow();
+    IND_OUT_SetHigh();
     __delay_ms(1000);
     clearLCD();
 
@@ -80,10 +84,12 @@ void main(void)
     {
         if(startMeasure)
         {
-            startMeasure = false;
-            IND_OUT_SetHigh();
-            SMT1_SingleDataAcquisition();
+            IND_OUT_SetLow();
+            //SMT1_SingleDataAcquisition();
         }
+        __delay_ms(100);
+        IND_OUT_SetHigh();
+        __delay_ms(100);
     }
 }
 /**
